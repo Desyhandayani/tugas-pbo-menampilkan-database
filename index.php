@@ -1,5 +1,3 @@
-
-
 <?php
 // include 'dbcontroller.php';
 require_once('dbcontroller.php');
@@ -28,7 +26,7 @@ $db = new dbController();
     <!-- Navbar -->
     <div class="fixed-top bg-light" style="height: 64px;" data-aos="fade-down" data-aos-duration="1000">
         <nav class="navbar container navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid " >
+            <div class="container-fluid ">
                 <a class="navbar-brand text-dark" href="#">SMKN 40 JAKARTA</a>
                 <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -62,16 +60,6 @@ $db = new dbController();
     </div>
     <!-- Akhir Navbar -->
 
-    <!-- Banner -->
-    <div class="banner-container d-flex justify-content-center">
-        <figure>
-            <figcaption>
-                <h3 class="text-white" id="element">
-                </h3>
-            </figcaption>
-        </figure>
-    </div>
-
     <!-- Cards -->
     <div class="container" id="kelas">
         <button title="Back To Top" class="btnScrollToTop bg-success">
@@ -79,7 +67,7 @@ $db = new dbController();
                 <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
             </svg>
         </button>
-        <h1 class="text-center text-center mb-5 mt-3">Kelas</h1>
+        <h1 class="text-center text-center mb-5 mt-70">Kelas</h1>
         <div class="row text-center justify-content-center">
 
             <?php
@@ -214,18 +202,11 @@ $db = new dbController();
             <a href="https://www.instagram.com/desyii16/" target="_blank" class="text-dark text-decoration-none fw-bold">
             <i class="bi bi-suit-heart-fill"></i>
             </a>
-            Created by Desydes &copy;CopyRight
+            Created by Desy &copy;CopyRight
         </p>
     </footer>
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        var typed = new Typed('#element', {
-            strings: [''],
-            typeSpeed: 50,
-            showCursor: false, // Sembunyikan kursor
-            loop: true // Ulangi animasi
-        });
         const btnScrollToTop = document.querySelector(".btnScrollToTop");
 
         btnScrollToTop.addEventListener("click", function() {
