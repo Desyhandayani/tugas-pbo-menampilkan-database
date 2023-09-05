@@ -12,8 +12,6 @@ $db = new dbController();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
-    </script>
 
      <!-- AOS  -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -67,11 +65,6 @@ $db = new dbController();
 
     <!-- kelas -->
     <div class="container" id="kelas">
-        <button title="Back To Top" class="btnScrollToTop bg-success">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
-            </svg>
-        </button>
         <h1 class="text-center text-center mb-5 mt-70">Kelas</h1>
         <div class="row text-center justify-content-center">
 
@@ -130,6 +123,7 @@ $db = new dbController();
             endforeach
             ?>
         </div>
+    </div>
         <!--jurusan end-->
 
         <!--guru-->
@@ -159,78 +153,83 @@ $db = new dbController();
                 endforeach
                 ?>
             </div>
+        </div>
         <!--guru end-->
 
+<!--siswa-->
 
-        <!--siswa-->
-            <div class="container" id="siswa">
-                <h1 class="text-center text-center mb-5 mt-3">Siswa</h1>
-                <div class="row text-center justify-content-center">
+<div class="container" id="siswa">
+  <div class="text-center text-center mb-5 mt-13"><h1>Siswa</h1>
+  <div class="row justify-content-center">
+  <div class="col-8">
+  <div class="table table-primary table table-success table-striped">
 
-                    <?php
-                    // Menggunakan PDO untuk menghubungkan ke database
-                    $db = new PDO("mysql:host=localhost;dbname=sekolah", "root", "");
+<table class="table mt-5">
+  <head>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Nama</th>
+      <th scope="col">Kelas</th>
+      <th scope="col">Jurusan</th>
+    </tr>
+  </head>
+     </body>
 
-                    // Kueri SQL dengan JOIN untuk mengambil data siswa, nama kelas, dan nama jurusan
-                    $sql = "SELECT t_siswa.f_nama, t_kelas.f_nama AS f_idkelas, t_jurusan.f_nama AS f_idjurusan
-                        FROM t_siswa
-                        INNER JOIN t_kelas ON t_siswa.f_idkelas = t_kelas.f_idkelas
-                        INNER JOIN t_jurusan ON t_siswa.f_idjurusan = t_jurusan.f_idjurusan";
+  <?php
+  $i=1;
+  $sql = "SELECT f_nama, f_idkelas, f_idjurusan FROM t_siswa";
 
-                    $result = $db->query($sql);
+  $row = $db->getALL($sql);
+  foreach ($row as $siswa) :
+  ?>
 
-                    foreach ($result as $row) :
-                    ?>
+    <tr>
+      <th scope="row">
+      <?php echo $i++; ?>
+      </th>
+      <td>
 
-                        <div class="card-all col-md-4 col-xl-6 mb-5" data-aos="fade-up" data-aos-duration="1000">
-                            <div class="card" style="width: 18rem;">
-                                <img src="img/siswa/<?php echo $row['f_nama']; ?>.jpg" class="card-img-top" alt="Siswa">
-                                <div class="card-body">
-                                    <h5 class="card-title text-dark">
-                                        <?php echo $row['f_nama']; ?>
-                                    </h5>
-                                    <span>Kelas: <?php echo $row['f_idkelas']; ?></span>
-                                    <p>Jurusan: <?php echo $row['f_idjurusan']; ?></p>
-                                </div>
-                            </div>
-                        </div>
+        <?php echo $siswa['f_nama']; ?>
 
-                    <?php
-                    endforeach;
-                    ?>
-                </div>
-            </div>
-        </div>
-    </div>
+      </td>
+      <td><?php echo $siswa['f_idkelas']; ?></td>
+      <td><?php echo $siswa['f_idjurusan']; ?></td>
+    </tr>
+
+    <?php endforeach ?>
+  </body>
+</table>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+
     <!--siswa end-->
 
+   
     <!-- footer-->
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#D9D9D9" fill-opacity="1" d="M0,288L40,261.3C80,235,160,181,240,138.7C320,96,400,64,480,80C560,96,640,160,720,170.7C800,181,880,139,960,144C1040,149,1120,203,1200,197.3C1280,192,1360,128,1400,96L1440,64L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path></svg>
+    <div>
 
-    <footer class="text-dark text-center mt-25" style="background: #D9D9D9;">
-        <p>
-        <i class="bi bi-suit-heart-fill"></i>
-            <a href="https://www.instagram.com/desyii16/" target="_blank" class="text-dark fw-bold">desydes</a>
-            CopyRight
-        </p>
-    </footer>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#D9D9D9" fill-opacity="1" d="M0,288L40,261.3C80,235,160,181,240,138.7C320,96,400,64,480,80C560,96,640,160,720,170.7C800,181,880,139,960,144C1040,149,1120,203,1200,197.3C1280,192,1360,128,1400,96L1440,64L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path></svg>
+        
+        <footer class="text-dark text-center mt-25" style="background: #D9D9D9;">
+            <p>
+                <i class="bi bi-suit-heart-fill"></i>
+                <a href="https://www.instagram.com/desyii16/" target="_blank" class="text-dark fw-bold">desydes</a>
+                CopyRight
+            </p>
+        </div>
+  </footer>
     <!--footer end-->
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        const btnScrollToTop = document.querySelector(".btnScrollToTop");
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+    </script>
 
-        btnScrollToTop.addEventListener("click", function() {
-            window.scrollTo(0, 0);
-        });
-        window.addEventListener("scroll", () => {
-            if (window.pageYOffset > 100) {
-                btnScrollToTop.classList.add("active");
-            } else {
-                btnScrollToTop.classList.remove("active");
-            }
-        })
-        AOS.init();
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
     </script>
 
 </body>
