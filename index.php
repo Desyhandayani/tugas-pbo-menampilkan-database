@@ -96,7 +96,7 @@ $db = new dbController();
 
     <!--jurusan-->
 
-    <div class="container" id="jurusan">
+    <div class="container pt-5" id="jurusan">
         <h1 class="text-center text-center mb-5 mt-3">Jurusan</h1>
         <div class="row text-center justify-content-center" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="500" data-aos-easing="ease-in-out"  data-aos-anchor-placement="top-center">
 
@@ -127,7 +127,7 @@ $db = new dbController();
         <!--jurusan end-->
 
         <!--guru-->
-        <div class="container" id="guru">
+        <div class="container pt-5" id="guru">
             <h1 class="text-center text-center mb-5 mt-3">Guru</h1>
             <div class="row text-center justify-content-center" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="500" data-aos-easing="ease-in-out"  data-aos-anchor-placement="top-center">
 
@@ -158,7 +158,7 @@ $db = new dbController();
 
 <!--siswa-->
 
-<div class="container" id="siswa">
+<div class="container pt-5" id="siswa" >
   <div class="text-center text-center mb-5 mt-13"><h1>Siswa</h1>
   <div class="row justify-content-center">
   <div class="col-8">
